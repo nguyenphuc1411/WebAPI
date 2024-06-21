@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model List<PFood.Models.UserVM>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Manager User</h3>
+        </div>
+        <div class="card-body">
+         
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="thead-dark">
+                    <tr style="text-align: center;">
+                        <th>Fullname</th>
+                        <th>Email</th>
+                        <th>Avatar</th>
+                        <th>Phone Number</th>
+                        <th>Joined Date</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        foreach (var c in Model)
+                        {
+                            <tr style="text-align: center;" class="align-middle">
+                                <td>@c.Fullname</td>
+                                <td>@c.Email</td>
+                                <td><img src="~/assets/img/profile/@c.Avartar" style="height: 45px; width: 45px;" /></td>
+                                <td>@c.PhoneNumber</td>
+                                <td>@c.JoinedDate.ToString("dd/MM/yyyy")</td>
+                                <td>@c.Role</td>
+                                <td>
+                                    <a asp-action="EditRole" asp-route-id="@c.Id" class="btn btn-warning btn-sm">
+                                        <i class="fas fa-edit"></i> Set Role
+                                    </a>
+                                    @if(c.Role != "Admin")
+                                    {
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-@c.Id">
+                                            <i class="fas fa-trash-alt"></i> Delete User
+                                        </button>
+                                    }
+                                  
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="deleteModal-@c.Id" tabindex="-1" aria-labelledby="deleteModalLabel-@c.Id" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-danger text-white">
+                                                    <h5 class="modal-title" id="deleteModalLabel-@c.Id">Confirm Deletion</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="lead fw-bold">Are you sure to delete this User?</p>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="me-3">
+                                                            <strong>Name:</strong> @c.Fullname
+                                                        </div>
+                                                        <div class="me-3">
+                                                            <strong>Role:</strong> @c.Fullname
+                                                        </div>
+                                                        <div>
+                                                            <strong>Avatar:</strong>
+                                                            <img src="~/assets/img/profile/@c.Avartar" style="padding: 5px; width: 100px; border: 1px solid #ddd; border-radius: 5px;" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                    <a asp-action="Delete" asp-route-id="@c.Id" class="btn btn-danger">Confirm</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+           @*  <div class="card-body">
+                <nav aria-label="Page navigation example" class="d-flex justify-content-end">
+                    <ul class="pagination">
+                        @if (Model.TotalPages > 0)
+                        {
+                            <li class="page-item">
+                                <a href="@Url.Action("Index", new { page = Model.Page - 1, pageSize = Model.PageSize })" class="btn btn-secondary @(Model.Page <= 1 ? "disabled" : "")">Previous</a>
+                            </li>
+                            @for (int i = 1; i <= Model.TotalPages; i++)
+                            {
+                                <li class="page-item">
+                                    <a asp-action="Index" asp-route-page="@i" class="page-link  @(Model.Page ==i ? "bg-primary text-white fw-bold" : "")">@i</a>
+                                </li>
+                            }
+                            <li class="page-item">
+                                <a href="@Url.Action("Index", new { page = Model.Page + 1, pageSize = Model.PageSize })" class="btn btn-secondary @(Model.Page >= Model.TotalPages ? "disabled" : "")">Next</a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            </div> *@
+        </div>
+    </div>
+</div>
+</div>
+
+

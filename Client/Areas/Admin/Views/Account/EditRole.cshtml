@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "EditRole";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model PFood.Models.UserVM
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="EditRole" method="post">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="form-group">
+                    <label asp-for="Fullname"></label>
+                    <input asp-for="Fullname" class="form-control" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label for="SelectedRole">Select Role</label>
+                    <select asp-for="Role" class="form-control">
+                        <option value="">-- Select Role --</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Customer">Customer</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update Role</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        margin-top: 10px;
+    }
+</style>
+

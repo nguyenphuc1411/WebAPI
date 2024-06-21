@@ -1,0 +1,330 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model PagedResponse<PFood.Models.FoodVM>
+
+@{
+    var listCategories = ViewBag.Categories as List<PFood.Models.CategoryVM>;
+}
+
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>"Fast - Delicious - Convenient!"</p>
+                    <h1>Food</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
+<!-- products -->
+<div class="product-section mt-60 mb-150">
+    <div class="container">
+
+        <div class="col-md-12">
+            <div class="product-filters mb-3">
+                <ul>
+                    <li class="@(ViewBag.CategoryID == null ? "active" : "")" style="background-image: url('/assets/img/store/all.jpg');">
+                        <a asp-action="Index">
+                            <span>All</span>
+                        </a>
+                    </li>
+                    @foreach (var cate in listCategories)
+                    {
+                        <li class="@(ViewBag.CategoryID == cate.CategoryID ? "active" : "")" style="background-image: url('assets/img/categories/@cate.Image');">
+                            <a asp-action="Index" asp-route-categoryID="@cate.CategoryID">
+                                <span>@cate.Name</span>
+                            </a>
+                        </li>
+                    }                 
+                </ul>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-12 mb-5">
+            <div class="mb-3 d-flex justify-content-center">
+                <form asp-action="Index" class="col-8">
+
+                    <div class="mt-3">
+                        <div class="d-flex justify-content-between">
+                            <h3 class="fw-bold">Filter Price</h3>
+                            <input type="submit" class="btn btn-sm text-white" value="Filter" />
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-4">
+                                <label>Min Price</label>
+                                <input type="range" min="0" max="100" value="0" step="1" oninput="updateRange('left', this.value)" id="rangeLeft">
+                                <input name="priceMin" value="@(ViewBag.priceMin ?? string.Empty )" class="form-control" min="0" type="number" id="priceMin" placeholder="Price Min: 0 $">
+
+                            </div>
+                            <div class="col-4">
+                                <label>Max Price</label>
+                                <input type="range" min="0" max="100" value="100" step="1" oninput="updateRange('right', this.value)" id="rangeRight">
+                                <input name="priceMax" value="@(ViewBag.priceMax ?? string.Empty)" class="form-control" min="0" type="number" id="priceMax" placeholder="Price Max:....$">
+                            </div>
+                            <div class="col-4">
+
+                                <input name="Search" type="text" class="form-control" placeholder="Search Food: "/>
+                                <select name="sortOrder" class="form-select mt-3">
+                                    <option value="" selected>OrderBy:</option>
+
+                                    @if (ViewBag.sortOrder == "priceAsc")
+                                    {
+                                        <option value="priceAsc" selected>Price: Low to High</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="priceAsc">Price: Low to High</option>
+                                    }
+                                    @if (ViewBag.sortOrder == "priceDesc")
+                                    {
+                                        <option value="priceDesc" selected>Price: High to Low</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="priceDesc">Price: High to Low</option>
+                                    }
+                                    @if (ViewBag.sortOrder == "nameAsc")
+                                    {
+                                        <option value="nameAsc" selected>Name: A to Z</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="nameAsc">Name: A to Z</option>
+                                    }
+                                    @if (ViewBag.sortOrder == "nameDesc")
+                                    {
+                                        <option value="nameDesc" selected>Name: Z to A</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="nameDesc">Name: Z to A</option>
+                                    }
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row product-lists">
+            @if(Model.Data!= null)
+            {
+                foreach (var item in Model.Data)
+                {
+                    <div class="col-lg-3 col-md-4 text-center">
+                        <div class="single-product-item p-3 border rounded shadow-sm">
+                            <div class="product-image mb-2">
+                                <a asp-controller="Food" asp-action="Detail" asp-route-id="@item.FoodID">
+                                    <img src="~/assets/img/foods/@item.ImageMain" alt="@item.Name" class="img-fluid">
+                                </a>
+                            </div>
+                            <h3 class="mb-2">@item.Name</h3>
+                            <p class="product-price mb-2">
+                                <span class="text-danger fw-bold">- $ @item.Discount</span>
+                                <span class="fw-bold fs-2">$ @item.Price</span>
+                            </p>
+                            <a class="btn btn-primary cart-btn" asp-controller="Carts" asp-action="AddToCart" asp-route-FoodID="@item.FoodID"
+                               asp-route-Name="@item.Name" asp-route-Price="@item.Price" asp-route-Image="@item.ImageMain">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+           
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="pagination-wrap">
+                    <ul>
+                        @if (Model.TotalPages > 0)
+                        {
+                            <li class="page-item">
+                                <a href="@Url.Action("Index", new { page = Model.Page - 1, pageSize = Model.PageSize })" class="btn btn-secondary @(Model.Page <= 1 ? "disabled" : "")">Previous</a>
+                            </li>
+                            @for (int i = 1; i <= Model.TotalPages; i++)
+                            {
+                                <li class="page-item">
+                                    <a asp-action="Index" asp-route-page="@i" class="page-link  @(Model.Page ==i ? "bg-primary text-white fw-bold" : "")">@i</a>
+                                </li>
+                            }
+                            <li class="page-item">
+                                <a href="@Url.Action("Index", new { page = Model.Page + 1, pageSize = Model.PageSize })" class="btn btn-secondary @(Model.Page >= Model.TotalPages ? "disabled" : "")">Next</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- end products -->
+
+<script>
+    function updateRange(side, value) {
+        if (side === "left") {
+            var minVal = parseInt(value) * 2;
+            var maxVal = parseInt(document.getElementById('priceMax').value);
+            if (minVal >= maxVal) {
+                alert("The Min Price can not greater than the Max Price Value");
+                document.getElementById('rangeLeft').value = 0;
+                document.getElementById('priceMin').value = "";
+            }
+            else {
+                document.getElementById('priceMin').value = value * 2;
+            }
+        } else {
+            var maxVal = parseInt(value) * 2;
+            var minVal = parseInt(document.getElementById('priceMin').value);
+            if (maxVal <= minVal) {
+                alert("The Max Price can not be less than the Min Price Value");
+                document.getElementById('rangeRight').value = 2;
+                document.getElementById('priceMax').value = "";
+            }
+            else {
+                document.getElementById('priceMax').value = value * 2;
+            }
+        }
+    }
+</script>
+
+<style>
+    .product-lists .single-product-item {
+        border: 1px solid #e1e1e1;
+        padding: 15px;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+        transition: transform 0.2s ease-in-out;
+    }
+
+        .product-lists .single-product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+    .product-image img {
+        height: 200px;
+        width: 200px;
+        margin-bottom: 15px;
+    }
+
+    .product-price {
+        font-size: 3em;
+        margin: 5px 0;
+    }
+
+    .original-price {
+        text-decoration: line-through;
+        color: #ff4c4c;
+        margin-right: 3px;
+    }
+
+    .discounted-price {
+        font-weight: bold;
+        color: #4caf50;
+    }
+
+    .badge {
+        font-size: 0.9em;
+    }
+
+    .cart-btn {
+        margin-top: 5px;
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+    }
+
+        .cart-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .cart-btn i {
+            margin-right: 5px;
+        }
+
+
+    .product-filters {
+        margin-top: 20px;
+        margin-bottom: 8px;
+    }
+
+        .product-filters ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+            .product-filters ul li {
+                display: inline-block;
+                font-weight: 500;
+                font-size: 15px;
+                margin: 2px;
+                border: 2px solid #051922;
+                color: #fff; /* Text color for better contrast on images */
+                cursor: pointer;
+                padding: 6px;
+                border-radius: 20px;
+                width: 150px; /* Width adjustment */
+                height: 60px; /* Height adjustment */
+                box-sizing: border-box;
+                background-size: cover;
+                background-position: center;
+                position: relative; /* Position for text centering */
+                text-align: center;
+            }
+
+                .product-filters ul li a {
+                    text-decoration: none;
+                    color: inherit;
+                    display: flex; /* Flexbox for centering */
+                    align-items: center; /* Vertical centering */
+                    justify-content: center; /* Horizontal centering */
+                    height: 100%; /* Ensure anchor takes full height of li */
+                    width: 100%; /* Ensure anchor takes full width of li */
+                    font-weight: bolder;
+                }
+
+                .product-filters ul li span {
+                    display: block;
+                    overflow: hidden; /* Hide overflow if text is too long */
+                    text-overflow: ellipsis; /* Add ellipsis for long text */
+                    padding: 0 5px; /* Padding for text */
+                    background: rgba(0, 0, 0, 0.5); /* Background for better readability */
+                    border-radius: 15px; /* Slight border-radius for text background */
+                }
+
+                .product-filters ul li.active {
+                    border: 2px solid #F28123;
+                    background-color: #F28123;
+                    color: #fff;
+                }
+
+                    .product-filters ul li.active a {
+                        background: rgba(242, 129, 35, 0.5); /* Adjust background for active state */
+                    }
+
+</style>
+
+
+

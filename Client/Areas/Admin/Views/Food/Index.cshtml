@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewData["Title"] = "Manager Food";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model PagedResponse<PFood.Models.FoodVM>
+
+<div class="section-body mt-4">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>Manager Food</h3>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-sm-12 col-md-12">
+                        <a asp-action="Create" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Add new Food
+                        </a>
+                    </div>
+                </div>
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="thead-dark">
+                        <tr style="text-align: center;">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Discount</th>
+                            <th>Image</th>
+                            <th>Status</th>
+                            <th>Category</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if(Model.Data != null)
+                        {
+                            foreach (var f in Model.Data)
+                            {
+                                <tr style="text-align: center;" class="align-middle">
+                                    <td>@f.FoodID</td>
+                                    <td>@f.Name</td>
+                                    <td>@f.Price</td>
+                                    <td>@f.Discount</td>
+                                    <td><img src="~/assets/img/foods/@f.ImageMain" style="height: 45px; width: 45px;" /></td>
+                                    <td>
+                                        @if (f.Status)
+                                        {
+                                            <span class="text-success"><i class="fa-solid fa-circle"></i> Active</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-danger"><i class="fa-solid fa-circle"></i> Deactive</span>
+                                        }
+                                    </td>
+                                    <td>@f.CategoryID</td>
+
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@f.FoodID" class="btn btn-warning btn-sm">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </a>
+                                        <!-- Button trigger modal -->
+                                       @*  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-@f.FoodID">
+                                            <i class="fas fa-trash-alt"></i> Delete
+                                        </button> *@
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="deleteModal-@f.FoodID" tabindex="-1" aria-labelledby="deleteModalLabel-@f.FoodID" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-danger text-white">
+                                                        <h5 class="modal-title" id="deleteModalLabel-@f.FoodID">Confirm Deletion</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p class="lead fw-bold">Are you sure you want to delete this <b>Food</b> ?</p>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="me-3">
+                                                                <strong>Name:</strong> @f.Name
+                                                            </div>
+                                                            <div class="me-3">
+                                                                <strong>Image:</strong>
+                                                                <img src="~/assets/img/foods/@f.ImageMain" style="padding: 5px; width: 100px; border: 1px solid #ddd; border-radius: 5px;" />
+                                                            </div>
+                                                            <div>
+                                                                <strong>Price:</strong> @f.Price
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                        <a asp-action="Delete" asp-route-id="@f.FoodID" class="btn btn-danger">Confirm</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            }
+                        }
+                      
+                    </tbody>
+                </table>
+                <div class="card-body">
+                    <nav aria-label="Page navigation example" class="d-flex justify-content-end">
+                        <ul class="pagination">
+                            @if (Model.TotalPages > 0)
+                            {
+                                <li class="page-item">
+                                    <a href="@Url.Action("Index", new { page = Model.Page - 1, pageSize = Model.PageSize })" class="btn btn-secondary @(Model.Page <= 1 ? "disabled" : "")">Previous</a>
+                                </li>
+                                @for (int i = 1; i <= Model.TotalPages; i++)
+                                {
+                                    <li class="page-item">
+                                        <a asp-action="Index" asp-route-page="@i" class="page-link  @(Model.Page ==i ? "bg-primary text-white fw-bold" : "")">@i</a>
+                                    </li>
+                                }
+                                <li class="page-item">
+                                    <a href="@Url.Action("Index", new { page = Model.Page + 1, pageSize = Model.PageSize })" class="btn btn-secondary @(Model.Page >= Model.TotalPages ? "disabled" : "")">Next</a>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

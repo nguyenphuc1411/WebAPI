@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model PFood.Data.Order
+@{
+    var coupon = ViewBag.Coupon as PFood.Models.CouponVM;
+}
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>"Fast - Delicious - Convenient!"</p>
+                    <h1>Order Detail</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="invoice-container">
+        <div class="invoice-header text-center mb-4">
+            <h1>Order Detail</h1>
+        </div>
+        <div class="invoice-details mb-4">
+            <h4>Customer Information</h4>
+            <div class="row">
+                <div class="col-12 col-md-6 text-overflow">
+                    <b>Full name: </b><b class="text-primary">@Model.FullName</b>
+                </div>
+                <div class="col-12 col-md-6 text-overflow">
+                    <b>Phone Number: </b> @Model.PhoneNumber
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 col-md-6 text-overflow">
+                    <b>Address: </b> @Model.DeliveryAddress
+                </div>
+                <div class="col-12 col-md-6 text-overflow">
+                    <b>OrderDate: </b> @Model.OrderDate
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 col-md-6 text-overflow">
+                    <b>Note: </b>  @Model.Note
+                </div>
+                <div class="col-12 col-md-6 text-overflow">
+                    <b>Use Coupon: </b><b class="text-danger"> @coupon?.CouponCode </b>                 
+                </div>
+            </div>
+            <div class="col-12 col-md-6 text-overflow mt-3">
+                <b>Status: </b><b class="text-danger"> @Model.Status </b>
+            </div>
+        </div>
+        <h4>Product List</h4>
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderDetails )
+                {
+                    <tr>
+                        <td class="text-overflow">@item.Food.Name</td>
+                        <td><img src="~/assets/img/foods/@item.Food.ImageMain" style="height: 50px; width: 50px; border-radius: 10px" /></td>
+                        <td>@item.Quantity</td>
+                        <td>$ @item.Price</td>
+                        <td>$ @(item.Price * item.Quantity)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="invoice-footer mt-4">
+            <h4>Sub Total: $ @Model.OrderDetails.Sum(x=>x.Quantity* x.Price) </h4>
+            <h4>Discount: $ @coupon?.Discount </h4>
+            <h4>Total: $ @Model.TotalAmount</h4>
+        </div>
+        <div class="mt-4 text-end">
+            <a asp-action="Index" class="btn btn-secondary">Back to order list</a>
+            <button class="btn btn-primary btn-print" onclick="window.print()">Print Invoice</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .invoice-container {
+        max-width: 800px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .invoice-header {
+        border-bottom: 1px solid #eaeaea;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+
+    .invoice-footer {
+        border-top: 1px solid #eaeaea;
+        margin-top: 20px;
+        padding-top: 10px;
+        text-align: right;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    .btn-print {
+        margin-right: 10px;
+    }
+
+    .text-overflow {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+</style>

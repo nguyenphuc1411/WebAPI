@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["Title"] = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<CartVM>;
+
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>Fresh and Organic</p>
+                    <h1>Carts</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
+<!-- check out section -->
+<!-- cart -->
+<div class="cart-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead class="cart-table-head">
+                            <tr class="table-head-row">
+                                <th class="product-remove"></th>
+                                <th >Product Image</th>
+                                <th >Name</th>
+                                <th >Price</th>
+                                <th >Quantity</th>
+                                <th >Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr class="table-body-row">
+                                        <td class="product-remove"><a asp-action="Remove" asp-route-id="@item.FoodID"><i class="far fa-window-close"></i></a></td>
+                                        <td ><img src="assets/img/foods/@item.Image" alt="" style="height: 100px;width: 100px; border-radius: 10px;" /></td>
+                                        <td >@item.Name</td>
+                                        <td >$ @item.Price</td>
+                                        <td >
+                                            <a class="btn btn-warning" asp-action="Decrease" asp-route-id="@item.FoodID"><i class="fa-solid fa-minus"></i></a>
+                                            <input style="width: 50px" type="number" readonly value="@item.Quantity" min="1" placeholder="0">
+                                            <a class="btn btn-warning" asp-action="Increase" asp-route-id="@item.FoodID"><i class="fa-solid fa-plus"></i></a>
+                                        </td>
+                                        <td >$ @(item.Price * item.Quantity)</td>
+                                    </tr>
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="total-section">
+                    <table class="total-table">
+                        <thead class="total-table-head">
+                            <tr class="table-total-row">
+                                <th>Total</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="total-data">
+                                <td><strong>Subtotal: </strong></td>
+                                <td>$ @(ViewBag.SubTotal ?? "")</td>
+                            </tr>
+                            @{
+                                string discount = TempData["coupon"] as string;
+                                decimal discountValue = 0;
+                                if (decimal.TryParse(discount, out var parsedValue))
+                                {
+                                    discountValue = parsedValue;
+                                }
+                            }
+                            <tr class="total-data">
+                                <td><strong>Discount: </strong></td>
+                                <td>$ @discountValue</td>
+                            </tr>
+                            <tr class="total-data">
+                                <td><strong>Total: </strong></td>
+                                <td>$ @(ViewBag.SubTotal - discountValue)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="cart-buttons">               
+                        <a asp-action="CheckOut" class="boxed-btn black">Check Out</a>
+                    </div>
+                </div>
+
+                <div class="coupon-section">
+                    <h3>Apply Coupon</h3>
+                    <div class="coupon-form-wrap">
+                        <form asp-action="ApplyCoupon">
+                            <p><input type="text" name="couponCode" placeholder="Coupon"></p>
+                            <p><input type="submit" value="Apply"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end cart -->

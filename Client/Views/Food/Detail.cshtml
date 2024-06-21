@@ -1,0 +1,340 @@
+﻿@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model PFood.Data.Food
+
+@{
+    var listReview = ViewBag.ListReview as List<PFood.Models.ReviewVM>;
+}
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>See more Details</p>
+                    <h1>Detail Food</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
+<!-- single product -->
+<div class="single-product mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="single-product-img">
+                    <img src="~/assets/img/foods/@Model.ImageMain" style="width: 90%" alt="">
+                </div>
+                <div class="row mt-3">
+                    <div class="col-4">
+                        <img src="~/assets/img/foods/@Model.ImageFirst" class="img-thumbnail" alt="Sub Image 1" style="height: 150px; width: 150px">
+                    </div>
+                    <div class="col-4">
+                        <img src="~/assets/img/foods/@Model.ImageSecond" class="img-thumbnail" alt="Sub Image 2" style="height: 150px; width: 150px">
+                    </div>
+                    <div class="col-4">
+                        <img src="~/assets/img/foods/@Model.ImageThree" class="img-thumbnail" alt="Sub Image 3" style="height: 150px; width: 150px">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="single-product-content">
+                    <h3>@Model.Name</h3>
+                    <p class="single-product-pricing"><span>Discount: <b> - @Model.Discount $</b></span> $ @Model.Price</p>
+                    <p>
+                        <b>Description: </b>
+                        @Model.Description
+                    </p>
+                    <form asp-controller="Carts" asp-action="AddToCart">
+                        <div class="single-product-form">
+                            <input type="hidden" name="FoodID" value="@Model.FoodID" />
+                            <input type="hidden" name="Name" value="@Model.Name" />
+                            <input type="hidden" name="Image" value="@Model.ImageMain" />
+                            <input type="hidden" name="Price" value="@Model.Price" />
+                            <input type="number" name="quantity" value="1" placeholder="1" min="1" /> <br />
+                            <input type="submit" class="mb-5 text-white mt-3" value="Add To Cart" />
+                        </div>
+                    </form>
+                    <p><strong>Categories: </strong>@ViewBag.NameCategory</p>
+                    <h4>Share:</h4>
+                    <ul class="product-share">
+                        <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                        <li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+                        <li><a href=""><i class="fab fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end single product -->
+<!-- Đánh giá -->
+<div class="container mb-5">
+    <div class="row mt-4 p-3 rounded-3">
+        @{
+            if(listReview != null)
+            {
+                // 5*
+                int count5Star = listReview.Where(x => x.Rating == 5).Count();
+                int count4Star = listReview.Where(x => x.Rating == 4).Count();
+                int count3Star = listReview.Where(x => x.Rating == 3).Count();
+                int count2Star = listReview.Where(x => x.Rating == 2).Count();
+                int count1Star = listReview.Where(x => x.Rating == 1).Count();
+
+                double average5Star = Math.Ceiling((double)count5Star / listReview.Count * 100);
+                double average4Star = Math.Ceiling((double)count4Star / listReview.Count * 100);
+                double average3Star = Math.Ceiling((double)count3Star / listReview.Count * 100);
+                double average2Star = Math.Ceiling((double)count2Star / listReview.Count * 100);
+                double average1Star = Math.Ceiling((double)count1Star / listReview.Count * 100);
+                double average = 0;
+
+                if (listReview.Count > 0)
+                {
+                    double total = listReview.Sum(x => x.Rating);
+                    average = Math.Round((total / listReview.Count), 1);
+                }
+
+
+                <!-- Rating of Customer -->
+                <div class="col-lg-6 border-end border-white">
+                    <h2 class="mb-4">Customer Ratings</h2>
+                    <div class="text-center mt-3">
+                        <p><b>Average Rating: </b><b class="fs-1 text-primary ms-5 me-2">@average</b>  <i class="bi fa-2x bi-star-fill text-warning"></i></p>
+                        <p class="fs-5"><b class="text-danger fs-3 fw-bold">@listReview.Count</b> Reviews</p>
+                    </div>
+                    <div class="mt-3">
+                        <!-- Rating Summary -->
+                        <div class="row mb-4">
+                            <div class="col-3">
+                                <div class="rating text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                            <div class="col-8 mt-2">
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: @average5Star%;" aria-valuenow="@average5Star" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-1"><b>@count5Star</b></div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <!-- Rating Summary -->
+                        <div class="row mb-4">
+                            <div class="col-3">
+                                <div class="rating text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                            <div class="col-8 mt-2">
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: @average4Star%;" aria-valuenow="@average5Star" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-1"><b>@count4Star</b></div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <!-- Rating Summary -->
+                        <div class="row mb-4">
+                            <div class="col-3">
+                                <div class="rating text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                            <div class="col-8 mt-2">
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: @average3Star%;" aria-valuenow="@average5Star" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-1"><b>@count3Star</b></div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <!-- Rating Summary -->
+                        <div class="row mb-4">
+                            <div class="col-3">
+                                <div class="rating text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                            <div class="col-8 mt-2">
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: @average2Star%;" aria-valuenow="@average5Star" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-1"><b>@count2Star</b></div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <!-- Rating Summary -->
+                        <div class="row mb-4">
+                            <div class="col-3">
+                                <div class="rating text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                            <div class="col-8 mt-2">
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: @average1Star%;" aria-valuenow="@average5Star" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-1"><b>@count1Star</b></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            }        
+        }
+        <!-- Add Rating -->
+        <div class="col-lg-6 p-4">
+            <form asp-action="Rating">
+                <h4 class="mt-5">Leave Your Rating</h4>
+                <b>Rating: </b>
+                <span class="rating text-warning ms-3">
+                    <i class="fa-solid fa-star star" data-value="1"></i>
+                    <i class="fa-solid fa-star star" data-value="2"></i>
+                    <i class="fa-solid fa-star star" data-value="3"></i>
+                    <i class="fa-solid fa-star star" data-value="4"></i>
+                    <i class="fa-solid fa-star star" data-value="5"></i>
+                </span>
+                <input type="hidden" name="rating" id="rating" value="5">
+                <hr>
+                <input name="foodID" value="@Model.FoodID" type="hidden" />
+                <h6>Comment:</h6>
+                <textarea name="comment" class="form-control rounded-3" rows="5"></textarea>
+                <button type="submit" class="btn btn-primary fw-bold mt-3">Submit Rating</button>
+            </form>
+        </div>
+    </div>
+    @if(listReview != null) {
+        if(listReview.Count > 0)
+        {
+        <div class="d-flex col-2 mx-auto mt-5 mb-5">
+            <b class="me-3">OrderBy: </b>
+            <select onchange="ChangeFilter()" class="form-select rounded-3" id="filter">
+                <option value="1" selected>All</option>
+                <option value="2">Newest</option>
+                <option value="3">Oldest</option>
+                <option value="4">Highest Rated</option>
+                <option value="5">Lowest Rated</option>
+            </select>
+        </div>
+        <!-- Reviewers -->
+        <div class="row" id="reviewContainer">
+            @foreach (var review in listReview)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 p-2 review" data-rating="@review.Rating" data-date="@review.CreatedDate.Ticks">
+                    <div class="p-3 rounded-3 border">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <i class="bi bi-person-circle"></i>
+                                <b>@review.Fullname</b>
+                            </div>
+                            <span>@review.CreatedDate.ToString("dd/MM/yyyy")</span>
+                        </div>
+                        <div class="rating text-warning mt-3 mb-3">
+                            @for (int i = 0; i < review.Rating; i++)
+                            {
+                                <i class="bi bi-star-fill"></i>
+                            }
+                        </div>
+                        <p class="fs-6 fw-bold">@review.Comment</p>
+                    </div>
+                </div>
+            }
+            
+        </div>
+        }
+    }
+</div>
+
+<style>
+    .star {
+        cursor: pointer;
+    }
+
+        .star.checked {
+            color: red;
+        }
+</style>
+<script>
+    const stars = document.querySelectorAll('.star');
+    const ratingInput = document.getElementById('rating');
+
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            const rating = star.getAttribute('data-value');
+            const currentRating = ratingInput.value;
+
+            if (rating === currentRating) {
+                stars.forEach(s => s.classList.remove('checked'));
+                ratingInput.value = 0;
+            } else {
+                // Update the rating
+                ratingInput.value = rating;
+
+                // Reset all stars
+                stars.forEach(s => s.classList.remove('checked'));
+
+                // Highlight all stars up to the clicked one
+                for (let i = 0; i < rating; i++) {
+                    stars[i].classList.add('checked');
+                }
+            }
+        });
+    });
+
+    const filterSelect = document.getElementById('filter');
+    const reviewContainer = document.getElementById('reviewContainer');
+    const reviews = Array.from(document.getElementsByClassName('review'));
+
+    function ChangeFilter() {
+        const filterValue = filterSelect.value;
+        let sortedReviews = [];
+
+        switch (filterValue) {
+            case '1': // All
+                sortedReviews = reviews;
+                break;
+            case '2': // Newest
+                sortedReviews = reviews.slice().sort((a, b) => b.getAttribute('data-date') - a.getAttribute('data-date'));
+                break;
+            case '3': // Oldest
+                sortedReviews = reviews.slice().sort((a, b) => a.getAttribute('data-date') - b.getAttribute('data-date'));
+                break;
+            case '4': // Highest Rated
+                sortedReviews = reviews.slice().sort((a, b) => b.getAttribute('data-rating') - a.getAttribute('data-rating'));
+                break;
+            case '5': // Lowest Rated
+                sortedReviews = reviews.slice().sort((a, b) => a.getAttribute('data-rating') - b.getAttribute('data-rating'));
+                break;
+        }
+
+        // Clear the container
+        reviewContainer.innerHTML = '';
+
+        // Append sorted reviews
+        sortedReviews.forEach(review => {
+            reviewContainer.appendChild(review);
+        });
+    }
+</script>

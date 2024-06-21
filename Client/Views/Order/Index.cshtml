@@ -1,0 +1,163 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<PFood.Models.OrderVM>
+
+@{
+    var status = ViewBag.Status as String;
+    var orderDate = ViewBag.OrderDate as DateTime?;
+    var formattedDate = orderDate.HasValue ? orderDate.Value.ToString("dd/MM/yyyy") : "";
+}
+
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>"Fast - Delicious - Convenient!"</p>
+                    <h1>Order</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+
+    <div class="filter-container">
+        <form id="form" asp-action="Index">
+            <input type="text" value="@ViewBag.Fullname" class="form-control" name="fullname" placeholder="Filter by Fullname">
+            <select name="status" class="form-control">
+                <option value="">All Statuses</option>
+                @if (status == "Wait for confirmation")
+                {
+                    <option selected value="Wait for confirmation">Wait for confirmation</option>
+                }
+                else
+                {
+                    <option value="Wait for confirmation">Wait for confirmation</option>
+                }
+                @if (status == "Confirmed")
+                {
+                    <option selected value="Confirmed">Confirmed</option>
+                }
+                else
+                {
+                    <option value="Confirmed">Confirmed</option>
+                }
+                @if (status == "Shipped")
+                {
+                    <option selected value="Shipped">Shipped</option>
+                }
+                else
+                {
+                    <option value="Shipped">Shipped</option>
+                }
+                @if (status == "Delivered")
+                {
+                    <option selected value="Delivered">Delivered</option>
+                }
+                else
+                {
+                    <option value="Delivered">Delivered</option>
+                }
+                @if (status == "Canceled")
+                {
+                    <option selected value="Canceled">Canceled</option>
+                }
+                else
+                {
+                    <option value="Canceled">Canceled</option>
+                }
+
+            </select>
+
+            <a onclick="submitForm()" class="btn btn-primary fw-bold text-white">Filter</a>
+        </form>
+        <a asp-action="Index" class="btn btn-secondary text-white">Clear Filters</a>
+    </div>
+
+    <table class="table table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Fullname</th>
+                <th scope="col">Order Date</th>
+                <th scope="col">Total Amount</th>
+                <th scope="col">Status</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><b>@item.FullName</b></td>
+                    <td>@item.OrderDate</td>
+                    <td>$ @item.TotalAmount</td>
+                    <td> @item.Status</td>
+                    <td>
+                        <a asp-action="Detail" asp-route-id="@item.OrderID" class="btn btn-primary btn-sm"><i class="fa-solid fa-eye"></i> Detail</a>
+                        @if (item.Status == "Wait for confirmation")
+                        {
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-@item.OrderID">
+                                <i class="fa-solid fa-xmark"></i> Cancel Order
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="deleteModal-@item.OrderID" tabindex="-1" aria-labelledby="deleteModalLabel-@item.OrderID" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header bg-danger text-white">
+                                            <h5 class="modal-title" id="deleteModalLabel-@item.OrderID">Confirm Deletion</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="lead fw-bold">Are you sure to cancel this order?</p>
+                                            <div class="d-flex align-items-center">
+                                                <div class="me-3">
+                                                    <strong>Full name:</strong>  @item.FullName
+                                                </div>
+                                                <div class="me-3">
+                                                    <strong>OrderDate:</strong>  @item.OrderDate
+                                                </div>
+                                                <div class="me-3">
+                                                    <strong>Total Amount:</strong> $ @item.TotalAmount
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                            <a asp-action="Cancel" asp-route-id="@item.OrderID" asp-route-status="Canceled" class="btn btn-danger">Confirm</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        }                      
+                    </td>
+                </tr>
+            }           
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .filter-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+        .filter-container .form-control {
+            width: auto;
+            display: inline-block;
+        }
+</style>
+
+<script>
+    function submitForm() {
+        document.getElementById("form").submit();
+    }
+</script>
+

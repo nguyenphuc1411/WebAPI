@@ -1,0 +1,129 @@
+﻿@using PFood.Models
+
+@{
+    ViewData["Title"] = "Create Food - Admin";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model PFood.Models.FoodVM
+
+@{
+    var listCategory = ViewBag.ListCategory as List<CategoryVM>;
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title">Create New Food</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label">Food Name</label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Price" class="form-label">Price</label>
+                            <input asp-for="Price" min="0" class="form-control" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Discount" class="form-label">Discount</label>
+                            <input asp-for="Discount" min="0" class="form-control" />
+                            <span asp-validation-for="Discount" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Status" class="form-label me-3">Status</label>
+                            <input type="checkbox" asp-for="Status" style=" width: 20px;
+                                height: 20px;
+                                border: 2px solid #555;
+                                border-radius: 4px;
+                                margin-right: 10px;" /> 
+                            <b class="text-primary">Active</b>  or  <b class="text-danger">DeActive</b>
+                            <span asp-validation-for="Status" class="text-danger"></span>
+                        </div>
+                         <div class="mb-3">
+                            <label asp-for="Description" class="form-label">Description</label>
+                            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ImageMain" class="form-label"></label>
+                            <img src="" id="imageChoose" class="ms-3 rounded-2" style="height: 80px; width: 80px;" />
+                            <input type="hidden" id="input_Image" asp-for="ImageMain" class="form-control" />
+                            <span asp-validation-for="ImageMain" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="control-label">Choose Image Main</label>
+                            <input onchange="ChooseImage()" type="file" accept="image/*" name="imageFile" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="ImageFirst" class="form-label"></label>
+                            <input name="imageFile1" type="file" accept="image/*" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="ImageSecond" class="form-label"></label>
+                            <input name="imageFile2" type="file" accept="image/*" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="ImageThree" class="form-label"></label>
+                            <input name="imageFile3" class="form-control" type="file" accept="image/*" />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="CategoryID" class="form-label">Category</label>
+                            <select asp-for="CategoryID" class="form-control">
+                                <option value="">-- Select Category --</option>
+                                @if (listCategory != null)
+                                {
+                                    foreach (var c in listCategory)
+                                    {
+                                        <option value="@c.CategoryID">@c.Name</option>
+                                    }
+                                }                             
+                            </select>
+                            <span asp-validation-for="CategoryID" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-check"></i> Submit
+                            </button>
+                        </div>
+                        <div class="d-grid mt-2">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Back to List
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function ChooseImage() {
+            var input = document.querySelector("input[type='file']");
+            if (input.files && input.files[0]) {
+                var file = input.files[0];
+                var fileName = file.name;
+                document.getElementById("input_Image").value = fileName;
+                var image = document.getElementById('imageChoose');
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    image.src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+}
+
+

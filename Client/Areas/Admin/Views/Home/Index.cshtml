@@ -1,0 +1,154 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard Food";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model List<PFood.Models.OrderVM>
+
+<!-- Sale & Revenue Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-line fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Today Order</p>
+                    <h6 class="mb-0">@(ViewBag.countOrderToday ?? 0 )</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Order</p>
+                    <h6 class="mb-0">@(ViewBag.countOrder ?? 0 )</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-area fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Today Amount</p>
+                    <h6 class="mb-0">$ @(ViewBag.amountToday ??0)</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Amount</p>
+                    <h6 class="mb-0">$ @(ViewBag.amount ?? 0 )</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sale & Revenue End -->
+<!-- Sales Chart Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Orrder</h6>
+                </div>
+                <div id="charts" style="width: ;height:400px;"></div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Amount</h6>
+                </div>
+                <div id="chartsAmount" style="width: ;height:400px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sales Chart End -->
+<!-- Recent Sales Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-light text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0">Recent Order</h6>
+            <a asp-action="Index" asp-controller="Order">Show All</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <thead>
+                    <tr class="text-dark">
+                        <th scope="col">Date</th>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if(Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.OrderDate.ToString("dd/MM/yyyy")</td>
+                                <td>@item.FullName</td>
+                                <td>@item.TotalAmount $</td>
+                                <td>@item.Status</td>
+                                <td><a class="btn btn-sm btn-primary" asp-controller="Order" asp-action="Detail" asp-route-id="@item.OrderID">Detail</a></td>
+                            </tr>
+                        }                       
+                    }                                  
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Recent Sales End -->
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.0.0/dist/echarts.min.js"></script>
+    <script>
+        var chartData = @Html.Raw(Json.Serialize(ViewBag.ChartData)); // Nhận dữ liệu từ ViewBag
+        var chartDataAmount = @Html.Raw(Json.Serialize(ViewBag.ChartDataAmount));
+        var chartDom = document.getElementById('charts');
+        var chartAmount = document.getElementById('chartsAmount');
+        var myChart = echarts.init(chartDom);
+        var myChartAmount = echarts.init(chartAmount);
+        var option,optionAmount;
+
+        option = {
+            xAxis: {
+                type: 'category',
+                data: chartData.map(item => item.key) // Lấy các ngày từ dữ liệu
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    data: chartData.map(item => item.value), // Lấy số đơn hàng từ dữ liệu
+                    type: 'bar'
+                }
+            ]
+        };
+        optionAmount = {
+            xAxis: {
+                type: 'category',
+                data: chartDataAmount.map(item => item.key) // Lấy các ngày từ dữ liệu
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    data: chartDataAmount.map(item => item.value), // Lấy số đơn hàng từ dữ liệu
+                    type: 'bar'
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+        optionAmount && myChartAmount.setOption(optionAmount);
+    </script>
+}

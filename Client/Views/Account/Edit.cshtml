@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model PFood.Models.UserVM
+
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>"Fast - Delicious - Convenient!"</p>
+                    <h1>Edit Profile</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
+
+<div class="profile-header text-center mt-5">
+    <img src="~/assets/img/profile/@Model.Avartar" alt="User Photo" class="profile-img border shadow-sm" style="height: 100px; width: 100px">
+    <h3 class="mt-3">@Model.Fullname</h3>
+    <p></p>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="profile-card bg-white rounded shadow-sm p-4">
+                <div class="profile-info" style="margin-top: 30px">
+                    <h3>Personal Information</h3>
+                    <form asp-controller="Account" asp-action="Edit" method="post" enctype="multipart/form-data">
+                                                  
+                        <div class="form-group">
+                            <label asp-for="Fullname"></label>
+                            <input asp-for="Fullname" class="form-control">
+                            <span class="text-danger" asp-validation-for="Fullname"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email"></label>
+                            <input readonly type="email" asp-for="Email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PhoneNumber"></label>
+                            <input type="tel" class="form-control" asp-for="PhoneNumber">
+                            <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Address"></label>
+                            <input asp-for="Address" type="text" class="form-control">
+                            <span class="text-danger" asp-validation-for="Address"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="DOB">Date of Birth</label>
+                            <input asp-for="DOB" type="date" class="form-control">
+                            <span class="text-danger" asp-validation-for="DOB"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Chanage Avatar</label>
+                            <input name="imageFile" type="file" accept="image/*" class="form-control">
+                           
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+                    </form>
+                </div>
+                <hr>
+
+                <div class="profile-social mt-4 text-center">
+                    <a asp-action="Profile" asp-controller="Account" class="btn btn-danger mx-2">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

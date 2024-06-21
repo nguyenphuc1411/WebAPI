@@ -1,0 +1,168 @@
+﻿@{
+    ViewData["Title"] = "CheckOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var carts = ViewBag.Carts as List<CartVM>;
+    var coupon = ViewBag.Coupon as PFood.Models.CouponVM;
+}
+@model PFood.Models.OrderVM;
+
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>Fresh and Organic</p>
+                    <h1>Check Out Product</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
+<!-- check out section -->
+<div class="checkout-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="checkout-accordion-wrap">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card single-accordion">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Billing Address
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="billing-address-form">
+                                        @* Detail Order *@
+                                        <form id="checkoutForm" asp-action="CheckOut" method="post">
+                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                            @if (coupon != null)
+                                            {
+                                                <input type="hidden" asp-for="TotalAmount" value="@(ViewBag.SubTotal- coupon?.Discount)" />
+                                                <input type="hidden" asp-for="CouponID" value="@coupon?.CouponID" />
+                                            }
+                                            else
+                                            {
+                                                <input type="hidden" asp-for="TotalAmount" value="@(ViewBag.SubTotal)" />
+                                            }
+
+                                            <span class="text-danger mb-4" asp-validation-for="FullName"></span>
+                                            <p><input type="text" asp-for="FullName" placeholder="Full Name"></p>
+                                            <span class="text-danger mb-4" asp-validation-for="DeliveryAddress"></span>
+                                            <p><input type="text" asp-for="DeliveryAddress" placeholder="Delevery Address"></p>
+                                            <span class="text-danger mb-4" asp-validation-for="PhoneNumber"></span>
+                                            <p><input type="tel" asp-for="PhoneNumber" placeholder="Phone Number"></p>
+
+                                            <p><textarea asp-for="Note" id="bill" cols="30" rows="10" placeholder="Say Something"></textarea></p>
+
+                                            <div>
+                                                <p><b>Select Payment Method:</b></p>
+                                                <label>
+                                                    <input type="radio" name="PaymentMethod" value="COD" checked>
+                                                    Cash on Delivery (COD)
+                                                </label><br>
+                                                <label>
+                                                    <input type="radio" name="PaymentMethod" value="VnPay">
+                                                    Online Payment
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card single-accordion">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Card Details
+                                    </button>
+                                </h5>
+                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Image</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var cart in carts)
+                                    {
+                                        <tr>
+                                            <td>@cart.Name</td>
+                                            <td>$@cart.Price</td>
+                                            <td><img src="~/assets/img/foods/@cart.Image" style="height: 50px;" /></td>
+                                            <td>@cart.Quantity</td>
+                                            <td>$@(cart.Price * cart.Quantity)</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="order-details-wrap">
+                    <table class="order-details">
+                        <thead>
+                            <tr>
+                                <th>Your order Details</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody class="checkout-details">
+
+                            <tr>
+                                <td>Subtotal</td>
+                                <td>$ @ViewBag.SubTotal</td>
+                            </tr>
+                            @if (coupon != null)
+                            {
+                                <tr>
+                                    <td>Coupon Code</td>
+                                    <td><b>@coupon.CouponCode</b> </td>
+                                </tr>
+                                <tr>
+                                    <td>Discount</td>
+                                    <td>$ @coupon.Discount</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Total</td>
+                                    <td>$ @(ViewBag.SubTotal - coupon.Discount)</td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                    <a class="boxed-btn" onclick="submitForm()">Place Order</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end check out section -->
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function submitForm() {
+            document.getElementById("checkoutForm").submit();
+        }
+    </script>
+}
+

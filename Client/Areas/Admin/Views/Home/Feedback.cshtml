@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewData["Title"] = "Feedback";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@{
+    var listFeedback = ViewBag.Feedback as List<PFood.Data.Feedback>;
+}
+
+<div class="container">
+    <h1 class="text-center mb-4">Feedbacks</h1>
+    <div class="row">
+        @if (listFeedback != null)
+        {
+            @foreach (var fb in listFeedback)
+            {
+                <div class="col-md-6">
+                    <div class="feedback-card">
+                        <div class="card-body">
+                            <h5 class="card-title">@fb.Name</h5>
+                            <p class="card-text">Phone: @fb.Phone</p>
+                            <p class="card-text">Email: @fb.Email</p>
+                            <p class="card-text">Subject: @fb.Subject</p>
+                            <p class="card-text">Message: @fb.Message</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+       
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+    }
+
+    .feedback-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+        .feedback-card .card-body {
+            padding: 20px;
+        }
+
+        .feedback-card .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .feedback-card .card-text {
+            color: #6c757d;
+            font-size: 16px;
+        }
+</style>
+

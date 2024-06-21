@@ -1,0 +1,625 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\Client.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Client.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\.gitattributes",
+      "PackagePath": "staticwebassets\\.gitattributes"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\bootstrap\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\assets\\bootstrap\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\css\\all.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\all.min.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\css\\animate.css",
+      "PackagePath": "staticwebassets\\assets\\css\\animate.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\css\\magnific-popup.css",
+      "PackagePath": "staticwebassets\\assets\\css\\magnific-popup.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\css\\main.css",
+      "PackagePath": "staticwebassets\\assets\\css\\main.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\css\\meanmenu.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\meanmenu.min.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\css\\responsive.css",
+      "PackagePath": "staticwebassets\\assets\\css\\responsive.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\css\\scss\\base\\_mixins.scss",
+      "PackagePath": "staticwebassets\\assets\\css\\scss\\base\\_mixins.scss"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\css\\scss\\base\\_typography.scss",
+      "PackagePath": "staticwebassets\\assets\\css\\scss\\base\\_typography.scss"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\css\\scss\\base\\_variables.scss",
+      "PackagePath": "staticwebassets\\assets\\css\\scss\\base\\_variables.scss"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\css\\scss\\common\\_common.scss",
+      "PackagePath": "staticwebassets\\assets\\css\\scss\\common\\_common.scss"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\css\\scss\\common\\_footer.scss",
+      "PackagePath": "staticwebassets\\assets\\css\\scss\\common\\_footer.scss"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\css\\scss\\common\\_header.scss",
+      "PackagePath": "staticwebassets\\assets\\css\\scss\\common\\_header.scss"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\css\\scss\\common\\_hover.scss",
+      "PackagePath": "staticwebassets\\assets\\css\\scss\\common\\_hover.scss"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\css\\scss\\prepros-6.config",
+      "PackagePath": "staticwebassets\\assets\\css\\scss\\prepros-6.config"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\bgmain.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\bgmain.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\breadcrumb-bg.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\breadcrumb-bg.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\categories\\burger.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\categories\\burger.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\categories\\mcdonald.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\categories\\mcdonald.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\categories\\pizza.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\categories\\pizza.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\categories\\sandwish.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\categories\\sandwish.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\combos\\burger.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\combos\\burger.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\combos\\mcdonald.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\combos\\mcdonald.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\favicon.png",
+      "PackagePath": "staticwebassets\\assets\\img\\favicon.png"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\foods\\burger.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\foods\\burger.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\foods\\hambuger1.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\foods\\hambuger1.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\foods\\hambuger2.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\foods\\hambuger2.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\foods\\hambuger3.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\foods\\hambuger3.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\foods\\mcdonald.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\foods\\mcdonald.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\foods\\pizza.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\foods\\pizza.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\foods\\pizza1.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\foods\\pizza1.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\foods\\pizza2.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\foods\\pizza2.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\foods\\pizza3.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\foods\\pizza3.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\foods\\sandwish.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\foods\\sandwish.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\homepage-bg-pattern.png",
+      "PackagePath": "staticwebassets\\assets\\img\\homepage-bg-pattern.png"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\phucshop.png",
+      "PackagePath": "staticwebassets\\assets\\img\\phucshop.png"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\profile\\pro.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\profile\\pro.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\store\\all.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\store\\all.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\store\\combo.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\store\\combo.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\img\\store\\food.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\store\\food.jpg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\js\\form-validate.js",
+      "PackagePath": "staticwebassets\\assets\\js\\form-validate.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\js\\jquery-1.11.3.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery-1.11.3.min.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\js\\jquery.countdown.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.countdown.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\js\\jquery.isotope-3.0.6.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.isotope-3.0.6.min.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\js\\jquery.magnific-popup.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.magnific-popup.min.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\js\\jquery.meanmenu.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.meanmenu.min.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\js\\main.js",
+      "PackagePath": "staticwebassets\\assets\\js\\main.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\js\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\owl.carousel.min.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\js\\sticker.js",
+      "PackagePath": "staticwebassets\\assets\\js\\sticker.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\js\\waypoints.js",
+      "PackagePath": "staticwebassets\\assets\\js\\waypoints.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-brands-400.eot_",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-brands-400.eot_"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-regular-400.eot_",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-regular-400.eot_"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-solid-900.eot_",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-solid-900.eot_"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\assets\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\assets\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\css\\admin.css",
+      "PackagePath": "staticwebassets\\css\\admin.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\js\\admin.js",
+      "PackagePath": "staticwebassets\\js\\admin.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\HocTap\\C#5 - API\\PFood\\Client\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.Client.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.build.Client.props",
+      "PackagePath": "build\\Client.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Client.props",
+      "PackagePath": "buildMultiTargeting\\Client.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildTransitive.Client.props",
+      "PackagePath": "buildTransitive\\Client.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

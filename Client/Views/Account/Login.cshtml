@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model PFood.Models.LoginVM;
+
+<div class="hero-area background">
+    <div class="container ">
+        <div class="row">
+            <div class="col-lg-4 mx-auto">
+                <div class="hero-text">
+                    <div class="hero-text-tablecell">
+                        <p class="subtitle">Welcome to Phuc Food</p>
+                        <h3 class="text-white">Login Form</h3>
+                        <form asp-action="Login">
+                            <div class="form-group mt-3">
+                                <label class="text-white fw-bold" asp-for="Email"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span class="text-danger" asp-validation-for="Email"></span>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label class="text-white fw-bold" asp-for="Password"></label>
+                                <input asp-for="Password" class="form-control" />
+                                <span class="text-danger" asp-validation-for="Password"></span>
+                            </div>
+                            <div class="form-group d-flex justify-content-between mt-3">
+                                <div>
+                                    <input type="checkbox" />
+                                    <a class="text-primary">Remember Me?</a>
+                                </div>
+                                <a asp-action="RequestForgotPassword" class="text-primary">Forget Password?</a>
+                            </div>
+                            <div class="hero-btns">
+                                <input type="submit" class="boxed-btn" value="Login" />
+                                <a asp-controller="Account" asp-action="Register" class="bordered-btn ms-5">Register</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
